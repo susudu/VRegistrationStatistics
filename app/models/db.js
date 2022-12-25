@@ -13,4 +13,5 @@ connection.connect(error => {
   if (error) throw error;
   console.log("Successfully connected to the database.");
 });
+connection.destroy();
 module.exports = connection;
