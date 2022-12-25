@@ -17,7 +17,7 @@ jobs:
       run: docker login --username "${{ secrets.DOCKER__HUB_USERNAME }}" --password "${{ secrets.DOCKER_HUB_PASSWORD }}"
 
     - name: Build the Docker Image
-      run: docker build . --file Dockerfile --tag stockexchange_test/v1
+      run: docker build . --file Dockerfile --tag vrsc_test/v1
 
     - name: Tag the Docker Image
       run: docker tag vrsc_test/v1 supathth1919/vregstats
