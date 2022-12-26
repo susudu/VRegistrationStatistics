@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: simple-bank-api-service
+  name: voter-stats-api-service
 spec:
   selector:
-    app: simple-bank-api
+    app: voter-stats-api
   ports:
     - protocol: TCP
       port: 80
