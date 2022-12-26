@@ -31,7 +31,7 @@ exports.findOne = (req, res) => {
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving voter stats with ssn test " + req.params.ssn
+          message: "Error retrieving voter stats with ssn" + req.params.ssn
         });
       }
     } else res.send(data);
