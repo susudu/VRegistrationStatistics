@@ -1,9 +1,7 @@
 const sql = require("./db.js");
 // constructor
 const Stats = function(stats) {
-  this.ssn = stats.ssn;
-  this.age = stats.age;
-  this.city = stats.city
+  this.ssn = stats.ssn
 };
 
 Stats.findBySSN = (ssn, result) => {
@@ -22,8 +20,20 @@ Stats.findBySSN = (ssn, result) => {
     result({ kind: "not_found" }, null);
   });
 };
-Stats.getAll = (result) => {
+Stats.getAllVoters = (result) => {
   let query = "SELECT * FROM user";
+  sql.query(query, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+    console.log("statistics: ", res);
+    result(null, res);
+  });
+};
+Stats.getAllVotersCity = (result) => {
+  let query = "SELECT city as City,Count(iduser) As VCount FROM user GROUP BY city";
   sql.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);
