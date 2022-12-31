@@ -1,16 +1,16 @@
 const Stats = require("../models/voterStats.model.js");
 
-// Retrieve all voter stats from the database
-exports.findAll = (req, res) => {
+// // Retrieve all voter stats from the database
+// exports.findAll = (req, res) => {
   
-};
-exports.findByCity = (req, res) => {
+// };
+// exports.findByCity = (req, res) => {
   
-};
-// Find a single voter detail with ssn
-exports.findOne = (req, res) => {
+// };
+// // Find a single voter detail with ssn
+// exports.findOne = (req, res) => {
   
-};
+// };
 
 // Retrieve all voter stats from the database
 exports.findAll = (req, res) => {
@@ -26,7 +26,8 @@ exports.findAll = (req, res) => {
 
 // Retrieve voter registered voter counts by city
 exports.findByCity = (req, res) => {
-  Stats.getAllVotersCity( (err, data) => {
+  const city = req.query.city;
+  Stats.getAllVotersCity(city, (err, data) => {
     if (err)
       res.status(500).send({
         message:
@@ -38,18 +39,33 @@ exports.findByCity = (req, res) => {
 
 //Retrieve a single object
 exports.findOne = (req, res) => {
-  Stats.findBySSN(req.params.ssn, (err, data) => {
+  const ssn = req.query.ssn;
+  Stats.findBySSN(ssn, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found exchange with ssn ${req.params.ssn}.`
+          message: `Not found voter with ssn ${req.params.ssn}.`
         });
       } else {
         res.status(500).send({
-          message: "Error retrieving voter stats with ssn" + req.params.ssn
+          message: "Error retrieving voter stats with ssn" + ssn
         });
       }
     } else res.send(data);
   });
 };
+
+// Retrieve transaction count for dates
+exports.findAllDateCount = (req, res) => {
+  const rdate = req.query.rdate;
+  Stats.getAllDateCount(rdate, (err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving voter stats by registered date."
+      });
+    else res.send(data);
+  });
+};
+
 
