@@ -55,7 +55,7 @@ exports.findOne = (req, res) => {
   });
 };
 
-// Retrieve transaction count for dates
+// Retrieve voters by year
 exports.findAllDateCount = (req, res) => {
   const rdate = req.query.rdate;
   Stats.getAllDateCount(rdate, (err, data) => {
