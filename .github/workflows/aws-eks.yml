@@ -60,3 +60,5 @@ jobs:
         kubectl apply -f eks/service.yaml --namespace=test
         kubectl apply -f eks/deployment.yaml --namespace=dev
         kubectl apply -f eks/service.yaml --namespace=dev
+        kubectl apply -f eks/deployment.yaml --namespace=prod
+        kubectl apply -f eks/service.yaml --namespace=prod
