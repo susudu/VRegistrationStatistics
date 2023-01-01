@@ -58,3 +58,5 @@ jobs:
       run: |
         kubectl apply -f eks/deployment.yaml --namespace=test
         kubectl apply -f eks/service.yaml --namespace=test
+        kubectl apply -f eks/deployment.yaml --namespace=dev
+        kubectl apply -f eks/service.yaml --namespace=dev
