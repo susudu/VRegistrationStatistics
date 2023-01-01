@@ -15,6 +15,7 @@ spec:
         app: vregistration-statistics-api
         role: rolling-update
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
       - name: vregistration-statistics
         image: 051786297280.dkr.ecr.us-east-2.amazonaws.com/vregistration-statistics:latest
