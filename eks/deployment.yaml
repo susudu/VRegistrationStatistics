@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: voterstats-api-deployment
+  name: vregistration-statistics-api-deployment
   labels:
-    app: voter-stats-api
+    app: vregistration-statistics-api
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: voter-stats-api
+      app: vregistration-statistics-api
   template:
     metadata:
       labels:
-        app: voter-stats-api
+        app: vregistration-statistics-api
     spec:
       containers:
-      - name: voter-stats-api
-        image: 227312628498.dkr.ecr.us-east-2.amazonaws.com/cc-cw_voterregistrationstats:latest
+      - name: vregistration-statistics
+        image: 051786297280.dkr.ecr.us-east-2.amazonaws.com/vregistration-statistics:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
