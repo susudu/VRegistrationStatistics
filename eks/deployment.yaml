@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: vregistration-statistics-api
+        role: rolling-update
     spec:
       containers:
       - name: vregistration-statistics
