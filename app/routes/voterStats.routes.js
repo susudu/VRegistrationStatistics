@@ -13,5 +13,4 @@ module.exports = app => {
   //router.get("/:id", vstats.findOne);
   //app.use('/api/vstats', router); 
   app.use('/api/vstats', router); 
-  
 };
