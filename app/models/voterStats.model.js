@@ -7,7 +7,7 @@ const Stats = function(stats) {
 };
 
 Stats.getAllVoters = (result) => {
-  let query = "SELECT * FROM user limit 5";
+  let query = "SELECT * FROM user";
   sql.query(query, (err, res) => {
     if (err) {
       console.log("error: ", err);
